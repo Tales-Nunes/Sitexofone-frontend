@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* =========================
+   BRAND THEME — TALESAX
+   ========================= */
+@theme {
+  /* FONTES */
+  --font-title: "Cinzel", serif;
+  --font-body: "Montserrat", sans-serif;
+
+  /* CORES DA MARCA */
+  --color-brand-black: #0e0e0e;
+  --color-brand-gold: #c9a24d;
+  --color-brand-offwhite: #f5f5f0;
+  --color-brand-graphite: #2a2a2a;
+
+  --color-accent-gold: #b8964b;
+  --color-accent-wine: #7a1f2b;
+
+  /* AJUSTES */
+  --tracking-wider: 0.12em;
+}
+
+html {
+  background-color: #0e0e0e;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #0e0e0e;
+  color: #f5f5f0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #0e0e0e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}

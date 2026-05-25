@@ -65,13 +65,14 @@ export default function Home() {
                 </span>
 
                 <h2 className="mt-4 font-title text-3xl leading-tight text-brand-offwhite md:text-4xl">
-                  Música ao vivo para ambientes elegantes
+                  Alguns momentos reais
                 </h2>
               </div>
 
               <p className="max-w-2xl font-body text-base leading-relaxed text-brand-offwhite/70 md:text-lg">
-                Um trabalho pensado para ocasiões em que a música precisa somar
-                presença, sofisticação e naturalidade ao ambiente.
+                Vídeos de apresentações em eventos, recepções e ocasiões em que
+                a música ao vivo ajuda a criar um ambiente mais elegante e
+                acolhedor.
               </p>
             </div>
 

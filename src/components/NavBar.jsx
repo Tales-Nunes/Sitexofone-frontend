@@ -106,11 +106,6 @@ export default function NavBar() {
               >
                 TALESAX
               </span>
-              <span
-                className={`mt-1 block font-body text-[11px] uppercase tracking-[0.22em] ${styles.logoSub}`}
-              >
-                Saxofonista para eventos
-              </span>
             </div>
           </Link>
 

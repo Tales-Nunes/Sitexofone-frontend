@@ -1,10 +1,6 @@
 import { ParallaxBanner } from "react-scroll-parallax";
 
 function Hero() {
-  const whatsappMessage = encodeURIComponent(
-    "Olá, gostaria de solicitar um orçamento para evento.",
-  );
-
   return (
     <section
       id="hero"
@@ -14,7 +10,7 @@ function Hero() {
         className="h-full w-full"
         layers={[
           {
-            image: "/img/hero.jpg",
+            image: "/img/ahero.jpg",
             speed: -10,
             scale: [1.15, 1],
             className: "object-cover",
@@ -25,34 +21,15 @@ function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,162,77,0.16),transparent_34%)]" />
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <span className="mb-5 inline-flex rounded-full border border-brand-gold/25 bg-brand-gold/10 px-4 py-2 font-body text-xs uppercase tracking-[0.24em] text-brand-gold">
-            Tales Nunes • Saxofonista
-          </span>
-
           <h1 className="max-w-5xl font-title text-5xl leading-tight tracking-[0.08em] text-brand-gold md:text-7xl">
             Saxofonista para eventos
           </h1>
-
-          <p className="mt-6 max-w-3xl font-body text-lg leading-relaxed text-brand-offwhite/88 md:text-2xl">
-            Coquetéis, casamentos, recepções e eventos em que classe, qualidade
-            e profissionalismo precisam ser percebidos.
-          </p>
-
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
-              href={`https://wa.me/5511996983359?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noreferrer"
+              href="#intro"
               className="inline-flex items-center justify-center rounded-full bg-brand-gold px-8 py-4 font-body text-sm font-semibold tracking-wide text-brand-black transition duration-300 hover:bg-accent-gold"
             >
-              Solicitar orçamento
-            </a>
-
-            <a
-              href="#contato"
-              className="inline-flex items-center justify-center rounded-full border border-brand-gold/30 px-8 py-4 font-body text-sm font-medium tracking-wide text-brand-offwhite transition duration-300 hover:border-brand-gold hover:text-brand-gold"
-            >
-              Falar sobre o evento
+              Saiba mais
             </a>
           </div>
 
@@ -63,7 +40,10 @@ function Hero() {
 
         <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-brand-offwhite/72">
           <div className="flex flex-col items-center gap-2">
-            <span className="font-body text-[11px] uppercase tracking-[0.28em]">
+            <span
+              id="intro"
+              className="font-body text-[11px] uppercase tracking-[0.28em]"
+            >
               Scroll
             </span>
 

@@ -9,7 +9,7 @@ function Intro() {
   ];
 
   return (
-    <section className="px-6 py-20 md:py-24 bg-brand-black">
+    <section id="intro" className="px-6 py-20 md:py-24 bg-brand-black">
       <div className="mx-auto max-w-6xl">
         {/* TOPO */}
         <div className="mx-auto max-w-4xl text-center">

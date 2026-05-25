@@ -34,32 +34,20 @@ function Sobre() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="mb-6 font-body text-sm font-medium uppercase tracking-widest text-brand-gold">
-              Sobre
-            </h3>
-
             <h2 className="mb-6 font-title text-4xl leading-tight text-brand-offwhite md:text-5xl">
-              Música ao vivo com qualidade, sensibilidade e cuidado com a
-              experiência do evento
+              Música ao vivo com elegância e cuidado com a atmosfera do evento
             </h2>
 
             <p className="mb-4 font-body leading-relaxed text-brand-offwhite/80">
-              Sou saxofonista com formação na área e atuação em eventos ao vivo
-              há mais de 15 anos, sempre com atenção à qualidade musical, à
-              leitura do ambiente e à postura profissional.
-            </p>
-
-            <p className="mb-4 font-body leading-relaxed text-brand-offwhite/80">
-              Ao longo desse percurso, participei de apresentações em diferentes
-              contextos, desenvolvendo um trabalho voltado a ocasiões em que a
-              música precisa somar elegância, presença e bom gosto, sem
-              excessos.
+              Sou saxofonista com mais de 15 anos de atuação em eventos, sempre
+              com foco em qualidade musical, presença adequada ao ambiente e
+              condução profissional.
             </p>
 
             <p className="font-body leading-relaxed text-brand-offwhite/80">
-              Hoje, meu foco está principalmente em casamentos, eventos
-              corporativos, coquetéis, recepções e celebrações sofisticadas, com
-              propostas pensadas para valorizar a atmosfera de cada evento.
+              Atuo principalmente em casamentos, eventos corporativos, coquetéis
+              e recepções, com apresentações pensadas para somar sofisticação ao
+              momento sem excessos.
             </p>
           </motion.div>
         </div>

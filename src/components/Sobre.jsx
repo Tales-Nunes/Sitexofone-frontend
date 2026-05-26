@@ -35,12 +35,12 @@ function Sobre() {
             viewport={{ once: true }}
           >
             <h2 className="mb-6 font-title text-4xl leading-tight text-brand-offwhite md:text-5xl">
-              Música ao vivo com elegância e cuidado na atmosfera do seu evento
+              Música ao vivo com elegância e cuidado no seu evento
             </h2>
 
             <p className="mb-4 font-body leading-relaxed text-brand-offwhite/80">
-              Sou saxofonista com mais de 15 anos de atuação em eventos, sempre
-              com foco em qualidade musical, presença adequada ao ambiente e
+              Saxofonista com mais de 15 anos de atuação em eventos, sempre com
+              foco em qualidade musical, presença adequada ao ambiente e
               condução profissional.
             </p>
 

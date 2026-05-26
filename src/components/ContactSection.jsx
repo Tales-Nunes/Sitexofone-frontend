@@ -182,7 +182,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" className={`px-6 py-24 md:py-28 ${styles.section}`}>
+    <section id="contato" className={`px-6 py-8 md:py-8 ${styles.section}`}>
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>

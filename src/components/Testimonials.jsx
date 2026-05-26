@@ -59,7 +59,7 @@ export default function Testimonials() {
 
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat px-4 py-24"
+      className="relative bg-cover bg-center bg-no-repeat px-4 py-8"
       style={{ backgroundImage: "url('/images/bg-depoimentos.jpg')" }}
     >
       <div className="absolute inset-0 bg-brand-black/82 backdrop-blur-md" />

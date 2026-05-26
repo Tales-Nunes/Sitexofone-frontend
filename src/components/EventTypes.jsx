@@ -30,7 +30,7 @@ function EventTypes() {
   ];
 
   return (
-    <section className="px-6 py-24 text-brand-offwhite md:py-28">
+    <section className="px-6 py-8 text-brand-offwhite md:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>

@@ -4,16 +4,25 @@ import * as Select from "@radix-ui/react-select";
 import { Check, ChevronDown, Mail } from "lucide-react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
+const INITIAL_FORM = {
+  name: "",
+  email: "",
+  whatsapp: "",
+  eventType: "",
+  eventDate: "",
+  eventLocation: "",
+  message: "",
+};
+
 export default function ContactSection() {
   const location = useLocation();
   const currentPath = location.pathname;
   const isWeddingPage = currentPath.startsWith("/eventos/casamento");
+  const isCorporatePage = currentPath.startsWith("/eventos/corporativo");
 
-  const [eventType, setEventType] = useState("");
+  const [formData, setFormData] = useState(INITIAL_FORM);
 
-  const whatsappMessage = encodeURIComponent(
-    "Olá, gostaria de solicitar um orçamento para evento.",
-  );
+  const whatsappPhone = "5511996983359";
 
   const eventOptions = [
     { label: "Casamento", value: "casamento" },
@@ -23,12 +32,26 @@ export default function ContactSection() {
     { label: "Outro", value: "outro" },
   ];
 
+  const getInitialWhatsappMessage = () => {
+    if (isWeddingPage) {
+      return "Olá, gostaria de solicitar um orçamento para casamento.";
+    }
+
+    if (isCorporatePage) {
+      return "Olá, gostaria de solicitar um orçamento para evento corporativo.";
+    }
+
+    return "Olá, gostaria de solicitar um orçamento para evento.";
+  };
+
   const contactCards = [
     {
       title: "WhatsApp",
       value: "+55 (11) 9 9698-3359",
       description: "Atendimento direto para orçamento e disponibilidade.",
-      href: `https://wa.me/5511996983359?text=${whatsappMessage}`,
+      href: `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+        getInitialWhatsappMessage(),
+      )}`,
       external: true,
       icon: <FaWhatsapp className="h-[18px] w-[18px]" />,
     },
@@ -42,9 +65,9 @@ export default function ContactSection() {
     },
     {
       title: "E-mail",
-      value: "talesnunes.siqueira@gmail.com",
+      value: "contato.talesax@gmail.com",
       description: "Contato para propostas, eventos e informações comerciais.",
-      href: "mailto:talesnunes.siqueira@gmail.com",
+      href: "mailto:contato.talesax@gmail.com",
       external: false,
       icon: <Mail className="h-[18px] w-[18px]" />,
     },
@@ -106,6 +129,58 @@ export default function ContactSection() {
         button: "bg-brand-gold text-brand-black hover:bg-accent-gold",
       };
 
+  const handleChange = (field) => (event) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: event.target.value,
+    }));
+  };
+
+  const handleEventTypeChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      eventType: value,
+    }));
+  };
+
+  const getEventTypeLabel = (value) => {
+    const matchedOption = eventOptions.find((option) => option.value === value);
+    return matchedOption ? matchedOption.label : value;
+  };
+
+  const buildWhatsappText = () => {
+    const lines = [
+      "Olá! Gostaria de solicitar um orçamento.",
+      "",
+      `Nome: ${formData.name}`,
+      `WhatsApp: ${formData.whatsapp || "Não informado"}`,
+      `E-mail: ${formData.email || "Não informado"}`,
+      `Tipo de evento: ${
+        formData.eventType
+          ? getEventTypeLabel(formData.eventType)
+          : "Não informado"
+      }`,
+      `Data do evento: ${formData.eventDate || "Não informada"}`,
+      `Cidade / local: ${formData.eventLocation || "Não informado"}`,
+      "",
+      "Mensagem:",
+      formData.message || "Não informada",
+    ];
+
+    return lines.join("\n");
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const whatsappText = buildWhatsappText();
+    const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+      whatsappText,
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section id="contato" className={`px-6 py-24 md:py-28 ${styles.section}`}>
       <div className="mx-auto max-w-6xl">
@@ -122,14 +197,6 @@ export default function ContactSection() {
             >
               Vamos conversar sobre o seu evento
             </h2>
-
-            <p
-              className={`mt-6 max-w-xl font-body text-lg leading-relaxed ${styles.body}`}
-            >
-              Atendimento para a região da capital de São Paulo, com foco em
-              casamentos, eventos corporativos, coquetéis, recepções e ocasiões
-              sociais sofisticadas.
-            </p>
 
             <div className="mt-10 space-y-4">
               {contactCards.map((card) => (
@@ -174,38 +241,36 @@ export default function ContactSection() {
             className={`rounded-[2rem] border p-6 md:p-8 ${styles.formWrap}`}
           >
             <div className="mb-8">
-              <span
-                className={`font-body text-xs uppercase tracking-[0.22em] ${styles.label}`}
-              >
-                Solicitação
-              </span>
-
               <h3
                 className={`mt-3 font-title text-2xl md:text-3xl ${styles.formTitle}`}
               >
-                Solicitar contato
+                Solicitação
               </h3>
 
               <p
                 className={`mt-3 max-w-lg font-body text-sm leading-relaxed md:text-base ${styles.formText}`}
               >
-                Envie as informações principais do evento para iniciar a
-                conversa de forma mais objetiva.
+                Preencha os dados principais e a solicitação será aberta direto
+                no WhatsApp.
               </p>
             </div>
 
-            <form className="grid gap-5">
+            <form className="grid gap-5" onSubmit={handleSubmit}>
               <div className="grid gap-5 md:grid-cols-2">
                 <div>
                   <label
                     className={`mb-2 block font-body text-sm ${styles.body}`}
+                    htmlFor="contact-name"
                   >
                     Nome
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     placeholder="Seu nome"
                     required
+                    value={formData.name}
+                    onChange={handleChange("name")}
                     className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                   />
                 </div>
@@ -213,13 +278,16 @@ export default function ContactSection() {
                 <div>
                   <label
                     className={`mb-2 block font-body text-sm ${styles.body}`}
+                    htmlFor="contact-email"
                   >
                     E-mail
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     placeholder="seuemail@exemplo.com"
-                    required
+                    value={formData.email}
+                    onChange={handleChange("email")}
                     className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                   />
                 </div>
@@ -229,12 +297,17 @@ export default function ContactSection() {
                 <div>
                   <label
                     className={`mb-2 block font-body text-sm ${styles.body}`}
+                    htmlFor="contact-whatsapp"
                   >
                     WhatsApp
                   </label>
                   <input
+                    id="contact-whatsapp"
                     type="tel"
                     placeholder="(11) 99999-9999"
+                    required
+                    value={formData.whatsapp}
+                    onChange={handleChange("whatsapp")}
                     className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                   />
                 </div>
@@ -246,7 +319,10 @@ export default function ContactSection() {
                     Tipo de evento
                   </label>
 
-                  <Select.Root value={eventType} onValueChange={setEventType}>
+                  <Select.Root
+                    value={formData.eventType}
+                    onValueChange={handleEventTypeChange}
+                  >
                     <Select.Trigger
                       className={`inline-flex h-[58px] w-full items-center justify-between rounded-2xl px-5 font-body outline-none transition duration-300 ${styles.selectTrigger}`}
                       aria-label="Tipo de evento"
@@ -284,8 +360,6 @@ export default function ContactSection() {
                       </Select.Content>
                     </Select.Portal>
                   </Select.Root>
-
-                  <input type="hidden" name="eventType" value={eventType} />
                 </div>
               </div>
 
@@ -293,12 +367,16 @@ export default function ContactSection() {
                 <div>
                   <label
                     className={`mb-2 block font-body text-sm ${styles.body}`}
+                    htmlFor="contact-date"
                   >
                     Data do evento
                   </label>
                   <input
+                    id="contact-date"
                     type="text"
                     placeholder="Ex.: 18/09/2026"
+                    value={formData.eventDate}
+                    onChange={handleChange("eventDate")}
                     className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                   />
                 </div>
@@ -306,12 +384,16 @@ export default function ContactSection() {
                 <div>
                   <label
                     className={`mb-2 block font-body text-sm ${styles.body}`}
+                    htmlFor="contact-location"
                   >
                     Cidade / local
                   </label>
                   <input
+                    id="contact-location"
                     type="text"
                     placeholder="Ex.: São Paulo - SP"
+                    value={formData.eventLocation}
+                    onChange={handleChange("eventLocation")}
                     className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                   />
                 </div>
@@ -320,13 +402,17 @@ export default function ContactSection() {
               <div>
                 <label
                   className={`mb-2 block font-body text-sm ${styles.body}`}
+                  htmlFor="contact-message"
                 >
                   Mensagem
                 </label>
                 <textarea
+                  id="contact-message"
                   rows="5"
                   placeholder="Conte um pouco sobre o evento, formato desejado e horário aproximado."
                   required
+                  value={formData.message}
+                  onChange={handleChange("message")}
                   className={`w-full rounded-2xl px-5 py-4 font-body outline-none transition duration-300 ${styles.input}`}
                 />
               </div>
@@ -335,7 +421,7 @@ export default function ContactSection() {
                 type="submit"
                 className={`mt-2 inline-flex items-center justify-center rounded-full px-8 py-4 font-body text-sm font-semibold tracking-wide transition duration-300 ${styles.button}`}
               >
-                Enviar solicitação
+                Enviar pelo WhatsApp
               </button>
             </form>
           </div>

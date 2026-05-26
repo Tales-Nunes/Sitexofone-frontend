@@ -6,6 +6,7 @@ function Footer() {
   const location = useLocation();
   const currentPath = location.pathname;
   const isWeddingPage = currentPath.startsWith("/eventos/casamento");
+  const isCorporatePage = currentPath.startsWith("/eventos/corporativo");
 
   const whatsappMessage = encodeURIComponent(
     "Olá, gostaria de solicitar um orçamento para evento.",
@@ -16,6 +17,13 @@ function Footer() {
     { label: "Casamentos", to: "/eventos/casamento" },
     { label: "Corporativo", to: "/eventos/corporativo" },
   ];
+
+  const contactHref =
+    currentPath === "/" ||
+    currentPath.startsWith("/eventos/casamento") ||
+    currentPath.startsWith("/eventos/corporativo")
+      ? "#contato"
+      : "/#contato";
 
   const styles = isWeddingPage
     ? {
@@ -44,7 +52,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-20">
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr_1fr]">
+        <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr_1fr]">
           <div>
             <span
               className={`font-body text-xs uppercase tracking-[0.24em] ${styles.heading}`}
@@ -55,24 +63,22 @@ function Footer() {
             <h2
               className={`mt-4 max-w-xl font-title text-3xl leading-tight md:text-4xl ${styles.title}`}
             >
-              Saxofonista para eventos com classe, qualidade e profissionalismo
+              Saxofonista para eventos com elegância, presença e
+              profissionalismo
             </h2>
 
             <p
               className={`mt-5 max-w-xl font-body text-base leading-relaxed ${styles.body}`}
             >
-              Atendimento para a região da capital de São Paulo, com foco em
-              casamentos, eventos corporativos, recepções, coquetéis e ocasiões
-              sofisticadas.
+              Apresentações para casamentos, eventos corporativos, coquetéis e
+              recepções.
             </p>
 
             <a
-              href={`https://wa.me/5511996983359?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noreferrer"
+              href={contactHref}
               className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 font-body text-sm font-semibold transition duration-300 ${styles.button}`}
             >
-              Solicitar orçamento
+              Ir para contato
             </a>
           </div>
 
@@ -100,7 +106,7 @@ function Footer() {
 
               <li>
                 <a
-                  href="#contato"
+                  href={contactHref}
                   className={`group inline-flex items-center font-body text-sm transition duration-300 ${styles.navText}`}
                 >
                   <span>Contato</span>
@@ -135,12 +141,12 @@ function Footer() {
               </a>
 
               <a
-                href="mailto:talesnunes.siqueira@gmail.com"
+                href="mailto:contato.talesax@gmail.com"
                 className={`group flex items-start gap-3 font-body text-sm transition duration-300 ${styles.navText}`}
               >
                 <Mail className={`mt-0.5 h-4 w-4 shrink-0 ${styles.heading}`} />
                 <span className="min-w-0 break-words">
-                  talesnunes.siqueira@gmail.com
+                  contato.talesax@gmail.com
                 </span>
               </a>
 
@@ -164,10 +170,6 @@ function Footer() {
             <p className={`font-body text-xs tracking-wide ${styles.info}`}>
               © {new Date().getFullYear()} Tales Nunes. Todos os direitos
               reservados.
-            </p>
-
-            <p className={`font-body text-xs tracking-wide ${styles.info}`}>
-              Saxofonista para eventos sofisticados em São Paulo.
             </p>
           </div>
         </div>

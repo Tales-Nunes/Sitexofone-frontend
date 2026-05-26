@@ -34,7 +34,7 @@ function Hero() {
           </div>
 
           <div className="mt-8 font-body text-sm text-brand-offwhite/62">
-            Atendimento na região de São Paulo
+            A elegância que o seu evento precisa
           </div>
         </div>
 

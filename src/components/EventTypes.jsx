@@ -35,11 +35,11 @@ function EventTypes() {
         <div className="mb-14 grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>
             <span className="font-body text-xs uppercase tracking-[0.24em] text-brand-gold">
-              Eventos
+              Formatos
             </span>
 
             <h2 className="mt-4 font-title text-3xl leading-tight text-brand-offwhite md:text-4xl">
-              Formatos pensados para diferentes tipos de ocasião
+              Onde o saxofone ao vivo se encaixa melhor
             </h2>
           </div>
 

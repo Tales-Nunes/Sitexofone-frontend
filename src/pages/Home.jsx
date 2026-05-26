@@ -13,21 +13,9 @@ const videos = [
   { src: "/videos/sax2.mp4" },
   { src: "/videos/sax3.mp4" },
   { src: "/videos/sax4.mp4" },
-];
-
-const moments = [
-  {
-    title: "Casamentos",
-    text: "Música ao vivo para cerimônia, recepção e momentos especiais com elegância e sensibilidade.",
-  },
-  {
-    title: "Corporativo",
-    text: "Uma presença musical adequada para recepções, encontros com clientes e eventos institucionais de alto padrão.",
-  },
-  {
-    title: "Eventos Sociais",
-    text: "Coquetéis, celebrações e ocasiões sofisticadas em que o ambiente pede leveza, classe e bom gosto.",
-  },
+  { src: "/videos/sax5.mp4" },
+  { src: "/videos/sax6.mp4" },
+  { src: "/videos/sax7.mp4" },
 ];
 
 const highlights = [
@@ -78,42 +66,6 @@ export default function Home() {
 
             <div className="overflow-hidden rounded-[2rem] border border-white/8 bg-brand-graphite/14 p-4 md:p-6">
               <VideoSlider videos={videos} />
-            </div>
-          </div>
-        </section>
-
-        <section className="px-6 py-24 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-14 max-w-3xl">
-              <span className="font-body text-xs uppercase tracking-[0.24em] text-brand-gold">
-                Onde esse trabalho se encaixa melhor
-              </span>
-
-              <h2 className="mt-4 font-title text-3xl leading-tight text-brand-offwhite md:text-4xl">
-                Formatos em que a música ao vivo ajuda a valorizar a experiência
-                do evento
-              </h2>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              {moments.map((item) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="rounded-[1.75rem] border border-white/8 bg-brand-graphite/16 p-8 transition duration-300 hover:border-brand-gold/20 hover:bg-brand-graphite/22"
-                >
-                  <h3 className="mb-4 font-title text-2xl text-brand-gold">
-                    {item.title}
-                  </h3>
-
-                  <p className="font-body leading-relaxed text-brand-offwhite/72">
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
@@ -175,26 +127,15 @@ export default function Home() {
 
         <section className="px-6 py-24 md:py-28">
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-brand-gold/18 bg-[linear-gradient(135deg,rgba(201,162,77,0.14),rgba(184,150,75,0.06),rgba(14,14,14,0.92))] px-8 py-12 text-center md:px-14 md:py-16">
-            <span className="font-body text-xs uppercase tracking-[0.24em] text-brand-gold">
-              Contato
-            </span>
-
             <h2 className="mt-4 font-title text-3xl leading-tight text-brand-offwhite md:text-5xl">
-              Se o seu evento pede uma presença musical elegante, será um prazer
-              conversar
+              Se fizer sentido para o seu evento, será um prazer conversar
             </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl font-body text-lg leading-relaxed text-brand-offwhite/74">
-              Atendimento para a região de São Paulo, com foco em casamentos,
-              eventos corporativos, coquetéis, recepções e ocasiões sociais
-              sofisticadas.
-            </p>
 
             <a
               href="#contato"
               className="mt-10 inline-flex items-center justify-center rounded-full bg-brand-gold px-8 py-4 font-body text-sm font-semibold tracking-wide text-brand-black transition duration-300 hover:bg-accent-gold"
             >
-              Solicitar informações
+              Contato
             </a>
           </div>
         </section>

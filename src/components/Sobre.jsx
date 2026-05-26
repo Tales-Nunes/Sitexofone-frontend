@@ -35,7 +35,7 @@ function Sobre() {
             viewport={{ once: true }}
           >
             <h2 className="mb-6 font-title text-4xl leading-tight text-brand-offwhite md:text-5xl">
-              Música ao vivo com elegância e cuidado com a atmosfera do evento
+              Música ao vivo com elegância e cuidado na atmosfera do seu evento
             </h2>
 
             <p className="mb-4 font-body leading-relaxed text-brand-offwhite/80">
@@ -46,8 +46,8 @@ function Sobre() {
 
             <p className="font-body leading-relaxed text-brand-offwhite/80">
               Atuo principalmente em casamentos, eventos corporativos, coquetéis
-              e recepções, com apresentações pensadas para somar sofisticação ao
-              momento sem excessos.
+              e recepções, com apresentações pensadas para trazer sofisticação
+              ao momento.
             </p>
           </motion.div>
         </div>
